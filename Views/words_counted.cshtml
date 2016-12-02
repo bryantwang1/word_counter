@@ -1,0 +1,17 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h3>Your word to count was: @Model.GetPrime()</h3>
+<h3>Your block of text was:</h3>
+<p>@Model.GetTest()</p>
+
+<div class="inline-flex">
+    <h2>@Model.GetPrime() showed up in your text @Model.GetCount() time</h2>
+    @if(Model.GetCount() > 1 || Model.GetCount() == 0)
+    {
+        <h2>s</h2>;
+    }
+</div>
+
+<h3><a href="/">Click here to return to the previous page.</a></h3>

@@ -1,0 +1,17 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h3>Welcome to Word Counter, where you enter a word to count and a block of text from which to count. Fill in the forms below and let's get counting.</h3>
+
+<form action="/words_counted" method="post">
+    <div class="form-group">
+        <label for="prime-word">Enter a word: </label>
+        <input type="text" name="prime-word" id="prime-word" placeholder="banana" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="test-string">Enter some text: </label><br>
+        <textarea name="test-string" id="test-string" placeholder="This is my banana. This banana is my favorite banana. No other banana can replace my banana." required autofocus></textarea>
+    </div>
+    <button type="submit">Count!</button>
+</form>

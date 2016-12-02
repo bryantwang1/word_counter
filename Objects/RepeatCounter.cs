@@ -7,6 +7,7 @@ namespace WordCounter.Objects
     {
         private string _primeWord;
         private string _testString;
+        private int _counter = 0;
         private string[] _nonLetterChars = { "!", "@", "#", "$", "%", "^", "&", "*", "+", "=", "\"", ":", ";", ".", ",", "?", "~", "`", "(", ")", "\\", "/", "|", "'" };
 
         public RepeatCounter(string primeWord)
@@ -19,6 +20,21 @@ namespace WordCounter.Objects
         {
             _primeWord = primeWord;
             _testString = testString;
+        }
+
+        public string GetPrime()
+        {
+            return _primeWord;
+        }
+
+        public string GetTest()
+        {
+            return _testString;
+        }
+
+        public int GetCount()
+        {
+            return _counter;
         }
 
         public int CountRepeats()
@@ -48,16 +64,17 @@ namespace WordCounter.Objects
                 }
             }
             string cleanString = String.Join("", characterArrays);
-            int counter = 0;
+
+            _counter = 0;
             string[] splitString = cleanString.Split(' ');
             foreach(string word in splitString)
             {
                 if(word.Equals(cleanPrime, StringComparison.OrdinalIgnoreCase))
                 {
-                    counter++;
+                    _counter++;
                 }
             }
-            return counter;
+            return _counter;
         }
     }
 }

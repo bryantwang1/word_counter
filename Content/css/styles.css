@@ -1,0 +1,17 @@
+body {
+    background-color: lightgray;
+    margin: 3vmin;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.form-group {
+    margin-bottom: 2vh;
+}
+
+#test-string {
+    width: 50vw;
+    height: 10vh;
+}
