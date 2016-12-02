@@ -48,7 +48,6 @@ namespace WordCounter.Objects
                 }
             }
             string cleanString = String.Join("", characterArrays);
-            Console.WriteLine("cleanstring: " + cleanString);
             int counter = 0;
             string[] splitString = cleanString.Split(' ');
             foreach(string word in splitString)
