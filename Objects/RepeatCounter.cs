@@ -7,7 +7,7 @@ namespace WordCounter.Objects
     {
         private string _primeWord;
         private string _testString;
-        private string[] _nonLetterChars = { "!", "@", "#", "$", "%", "^", "&", "*", "+", "=", "\"", ":", ";", ".", ",", "?", "~", "`", "(", ")", "\\", "/", "|" };
+        private string[] _nonLetterChars = { "!", "@", "#", "$", "%", "^", "&", "*", "+", "=", "\"", ":", ";", ".", ",", "?", "~", "`", "(", ")", "\\", "/", "|", "'" };
 
         public RepeatCounter(string primeWord)
         {
@@ -23,21 +23,37 @@ namespace WordCounter.Objects
 
         public int CountRepeats()
         {
+            string[] primeArrays = _primeWord.ToCharArray().Select( c => c.ToString()).ToArray();
+            for(int idx = 0; idx < primeArrays.Length; idx++)
+            {
+                string character = primeArrays[idx];
+                if(Array.IndexOf(_nonLetterChars, character) > -1)
+                {
+                    primeArrays[idx] = "";
+                }
+            }
+            string cleanPrime = String.Join("", primeArrays);
+
             string[] characterArrays = _testString.ToCharArray().Select( c => c.ToString()).ToArray();
             for(int idx = 0; idx < characterArrays.Length; idx++)
             {
                 string character = characterArrays[idx];
-                if(Array.IndexOf(_nonLetterChars, character) > -1)
+                if(character == "'")
+                {
+                    characterArrays[idx] = "";
+                }
+                else if(Array.IndexOf(_nonLetterChars, character) > -1)
                 {
                     characterArrays[idx] = " ";
                 }
             }
             string cleanString = String.Join("", characterArrays);
+            Console.WriteLine("cleanstring: " + cleanString);
             int counter = 0;
             string[] splitString = cleanString.Split(' ');
             foreach(string word in splitString)
             {
-                if(word.Equals(_primeWord, StringComparison.OrdinalIgnoreCase))
+                if(word.Equals(cleanPrime, StringComparison.OrdinalIgnoreCase))
                 {
                     counter++;
                 }
