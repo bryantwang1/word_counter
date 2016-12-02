@@ -9,7 +9,7 @@ namespace WordCounterTest
         public void StringContainsItself_InputThis_Return1()
         {
             string firstWord = "This";
-            RepeatCounter newCounter = new Repeatcounter(firstWord);
+            RepeatCounter newCounter = new RepeatCounter(firstWord);
             int result = newCounter.CountRepeats();
             Assert.Equal(1, result);
         }
@@ -21,7 +21,7 @@ namespace WordCounterTest
         [InlineData("This","\"This is a simple sentence is this not?\"",2)]
         public void CountWordRepeatingInSentence_InputWordThisAndASentence_ReturnAppearancesOfThis(string primeWord, string testSentence, int expectedResult)
         {
-            RepeatCounter newCounter = new RepeatCounter(primeWord, testSentence)
+            RepeatCounter newCounter = new RepeatCounter(primeWord, testSentence);
             int result = newCounter.CountRepeats();
             Assert.Equal(expectedResult, result);
         }
