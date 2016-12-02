@@ -15,10 +15,9 @@ namespace WordCounterTest
         }
         [Theory]
         [InlineData("This","This",1)]
-        [InlineData("This","This is a simple sentence is this not",2)]
+        [InlineData("This","This is a simple sentence is This not",2)]
         [InlineData("This","this is a simple sentence is this not",2)]
         [InlineData("This","\"This, is a simple sentence is this not!?\"",2)]
-        [InlineData("This","\"This is a simple sentence is this not?\"",2)]
         public void CountWordRepeatingInSentence_InputWordThisAndASentence_ReturnAppearancesOfThis(string primeWord, string testSentence, int expectedResult)
         {
             RepeatCounter newCounter = new RepeatCounter(primeWord, testSentence);
