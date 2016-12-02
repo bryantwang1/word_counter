@@ -21,11 +21,12 @@ namespace WordCounter.Objects
 
         public int CountRepeats()
         {
+
             int counter = 0;
             String[] splitString = _testString.Split(' ');
             foreach(string word in splitString)
             {
-                if(word == _primeWord)
+                if(word.Equals(_primeWord, StringComparison.OrdinalIgnoreCase))
                 {
                     counter++;
                 }
