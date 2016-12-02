@@ -12,6 +12,6 @@ body {
 }
 
 #test-string {
-    width: 50vw;
-    height: 10vh;
+    width: 50vmax;
+    height: 20vmax;
 }
